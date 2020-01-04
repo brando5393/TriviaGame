@@ -2,6 +2,7 @@ body{
     background-image: url(https://i.imgur.com/tjIXFDy.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Stoke', serif;
 }
 
 .container{
@@ -13,9 +14,27 @@ body{
 }
 
 .card-header{
-    color: white;
+    color: yellow;
+    background-image: linear-gradient(red,black);
 }
 
 .game-data-container{
     /* position: fixed; */
+}
+
+.jumbotron{
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f06dc538-5ca6-4d36-94da-2cb34f4817ff/dcdhm3c-8a9870fc-89b8-4dcc-a8ee-619bc5d6463d.png/v1/fill/w_1024,h_753,strp/jurassic_park_logo__yellow_version__by_thecreeper24_dcdhm3c-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzUzIiwicGF0aCI6IlwvZlwvZjA2ZGM1MzgtNWNhNi00ZDM2LTk0ZGEtMmNiMzRmNDgxN2ZmXC9kY2RobTNjLThhOTg3MGZjLTg5YjgtNGRjYy1hOGVlLTYxOWJjNWQ2NDYzZC5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.uMDTG1DbcJaAYhz7wtCXyCqc9vgecJjCWFQ-p_8Y_Is);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: lighten;
+    /* color: burlywood; */
+    color: darkolivegreen;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#page-heading{
+    font-family: 'PT Serif', serif;
 }
