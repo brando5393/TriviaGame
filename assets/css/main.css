@@ -29,12 +29,24 @@ body{
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.6);
     background-blend-mode: lighten;
-    /* color: burlywood; */
-    color: darkolivegreen;
+    /* color: darkolivegreen; */
+    color: orangered;
     text-align: center;
-    font-weight: bolder;
+    /* font-weight: bolder; */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 50px;
 }
+
+/* .lead, .sub-lead{
+    color: white;
+    font-weight: bold;
+} */
 
 #page-heading{
     font-family: 'PT Serif', serif;
+}
+
+#trivia-questions{
+    /* display: none; */
 }
