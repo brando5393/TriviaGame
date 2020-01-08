@@ -25,6 +25,14 @@ $(document).ready(function () {
         $("#main-audio").trigger('play');
     })
 
+
+
+    $(".submit-btn").click(function(){
+        startBtnClicked = false;
+        $("#main-audio").trigger('pause');
+        $("#end-game-audio").trigger('play');
+    })
+
     // create a timer set for 1 and 1/2 minutes
     var mainTimer = setTimeout(function(){
         console.log("timer working");
