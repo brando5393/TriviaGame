@@ -21,7 +21,8 @@ $(document).ready(function () {
         $("#trivia-questions").show();
         startBtnClicked = true;
         timerDisplayText.text("1:30");
-        $("#main-audio").trigger('play')
+        $("#welcome-audio").trigger('play');
+        $("#main-audio").trigger('play');
     })
 
     // create a timer set for 1 and 1/2 minutes
