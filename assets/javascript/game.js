@@ -13,52 +13,60 @@ var incorrectAnswersDisplayText = $("#incorrect-answer-display");
 var mainTimeout;
 
 // score game function
-function scoreGame(){
 
-}
 
 // timer obj
 var mainTimer = {
     time: 90,
-    
-    start: function(){
-        if(!mainTimerRunning){
-            $("#trivia-questions").show();
-            timerDisplayText.text("1:30");
-            $("#welcome-audio").trigger('play');
-            $("#main-audio").trigger('play');
-            mainTimeout = setTimeout(function(){
-                mainTimerRunning = true;
-            },90000)
+
+    start: function () {
+        // if(!mainTimerRunning){
+        $("#trivia-questions").show();
+        mainTimerRunning = true;
+        timerDisplayText.text("1:30");
+        $("#welcome-audio").trigger('play');
+        $("#main-audio").trigger('play');
+        var timer = setInterval(mainTimer.count, 1000);
+    },
+
+    count: function () {
+        mainTimer.time--;
+        console.log(mainTimer.time);
+        var convertedTime = mainTimer.timeConverter(mainTimer.time);
+        console.log(convertedTime);
+        timerDisplayText.text(convertedTime);
+        if (mainTimer.time === 0) {
+            console.log("game over");
+            clearInterval(timer);
+            mainTimerRunning = false;
         }
     },
 
-    count: function(){
-        mainTimer.time--;
-        var convertedTime = mainTimer.timeConverter(mainTimer.time);
-        timerDisplayText.text(convertedTime);
-    },
-
-    timeConverter: function(t){
+    timeConverter: function (t) {
         var minutes = Math.floor(t / 60);
         var seconds = t - (minutes * 60);
-        if(seconds < 10){
+        if (seconds < 10) {
             seconds = "0" + seconds;
         }
+        return minutes + ":" + seconds;
     },
 
-    stop: function(){
-        clearTimeout(mainTimeout);
+    stop: function () {
+        clearInterval(timer);
         mainTimerRunning = false;
         $("#main-audio").trigger('pause');
         $("#end-game-audio").trigger('play');
     },
 
-    outOfTime: function(){
-        clearTimeout(mainTimeout);
+    outOfTime: function () {
+        clearInterval(timer);
         mainTimerRunning = false;
         $("#main-audio").trigger('pause');
         $("#magic-word-audio").trigger('play');
+    },
+
+    scoreGame: function(){
+
     }
 }
 
@@ -69,21 +77,30 @@ $("#trivia-questions").hide();
 // document ready
 $(document).ready(function () {
 
-
-    $(".start-btn").click(function () {
-       mainTimer.start();
-       mainTimer.count();
-    })
-
-
-
-    $(".submit-btn").click(function(){
-        mainTimer.stop();
-    })
-
+    
     // user clicks start button timer begins to count down and questions display
 
     // if timer reaches 0 or user clicks submit button timer stops and the number of correct vs incorrect answers are displayed. Also, questions become hidden again
+    $(".start-btn").click(function () {
+        mainTimer.start();
+        if (mainTimerRunning === true) {
+            mainTimer.count();
+            $(".start-btn").hide();
+        }
+        if (mainTimer.time === 0) {
+            mainTimer.outOfTime();
+            clearInterval(timer);
+            $("#trivia-questions").hide();
+            $(".start-btn").show();
+            mainTimer.scoreGame();
+        } else if (submitBtnClicked === true) {
+            clearInterval(timer);
+            mainTimer.stop();
+            $("#trivia-questions").hide();
+            $(".start-btn").show();
+            mainTimer.scoreGame();
+        }
+    })
 })
 
 
