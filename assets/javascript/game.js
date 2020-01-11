@@ -2,6 +2,7 @@
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var mainTimerRunning = false;
+var timer;
 // timer var
 
 // display vars
@@ -26,7 +27,7 @@ var mainTimer = {
         timerDisplayText.text("1:30");
         $("#welcome-audio").trigger('play');
         $("#main-audio").trigger('play');
-        var timer = setInterval(mainTimer.count, 1000);
+        timer = setInterval(mainTimer.count, 1000);
     },
 
     count: function () {
@@ -72,11 +73,11 @@ var mainTimer = {
 
 
 
-$("#trivia-questions").hide();
 
 // document ready
 $(document).ready(function () {
-
+    
+    $("#trivia-questions").hide();
     
     // user clicks start button timer begins to count down and questions display
 
