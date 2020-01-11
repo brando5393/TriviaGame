@@ -39,6 +39,8 @@ var mainTimer = {
         if (mainTimer.time === 0) {
             console.log("game over");
             clearInterval(timer);
+            $("#main-audio").trigger('pause');
+            $("#magic-word-audio").trigger('play')
             mainTimerRunning = false;
         }
     },
